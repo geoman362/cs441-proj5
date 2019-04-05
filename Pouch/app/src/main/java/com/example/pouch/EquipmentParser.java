@@ -79,7 +79,7 @@ public class EquipmentParser {
             parseArmorTable(mediumTable, Armor.ArmorType.MEDIUM, content);
             content = armor.getJSONObject("Heavy Armor").getJSONArray("content");
             parseArmorTable(heavyTable, Armor.ArmorType.HEAVY, content);
-            
+
         }catch(Exception e){}
     }
 
