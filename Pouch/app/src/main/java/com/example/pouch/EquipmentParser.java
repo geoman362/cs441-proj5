@@ -35,8 +35,21 @@ public class EquipmentParser {
         Log.i("Item Count","There are " + equipment.size() + " items.");
     }
 
-    public ArrayList<Item> getItems(){
-        return equipment;
+    public ArrayList<String> getItems(){
+        ArrayList<String> itemNames = new ArrayList<>();
+        for(Item a: equipment){
+            itemNames.add(a.getText());
+        }
+        return itemNames;
+    }
+
+    public int getID(String item){
+        String name = item.split(" ")[0];
+        for(Item a: equipment){
+            if(name.equals(a.getName()))
+                return a.getId();
+        }
+        return -1;
     }
 
     public void parseTools(JSONObject items){
