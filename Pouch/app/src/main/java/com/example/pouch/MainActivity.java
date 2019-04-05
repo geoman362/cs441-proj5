@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //Insert this code where Equipment parser is needed
-        EquipmentParser ep = new EquipmentParser(this);
-        ep.printEquipment(); //prints equipment in the list
-        //ep.getItems(); //returns list of all items
+
     }
 
     @Override
