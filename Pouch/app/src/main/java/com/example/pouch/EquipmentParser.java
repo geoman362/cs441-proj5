@@ -10,8 +10,9 @@ import org.json.*;
 
 public class EquipmentParser {
     private static ArrayList<Item> equipment = new ArrayList<Item>();
-
+    private int id;
     public EquipmentParser(Context context){
+        id = 0;
         String json = readJSON(context);
         try {
             JSONObject obj = new JSONObject(json);
@@ -46,7 +47,8 @@ public class EquipmentParser {
 
 
             for(int i = 0; i < names.length(); i++){
-                equipment.add(new Item(names.getString(i), weights.getString(i).isEmpty() ? "-" : weights.getString(i), costs.getString(i).isEmpty() ? "-" : costs.getString(i), ""));
+                equipment.add(new Item(id, names.getString(i), weights.getString(i).isEmpty() ? "-" : weights.getString(i), costs.getString(i).isEmpty() ? "-" : costs.getString(i), ""));
+                id++;
             }
         }catch(Exception e){}
     }
@@ -61,7 +63,8 @@ public class EquipmentParser {
             JSONArray weights = items.getJSONArray("Weight");
 
             for (int i = 0; i < names.length(); i++) {
-                equipment.add(new Item(names.getString(i), weights.getString(i), costs.getString(i), contents.getString(i)));
+                equipment.add(new Item(id, names.getString(i), weights.getString(i), costs.getString(i), contents.getString(i)));
+                id++;
             }
         }catch (Exception e){}
     }
@@ -100,7 +103,7 @@ public class EquipmentParser {
             for (int i = 0; i < armorNames.length(); i++) {
                 acs.add(armorAC.getString(i));
                 names.add(armorNames.getString(i));
-                if (armorStealthy.getString(i).equals("â€”"))
+                if (armorStealthy.getString(i).equals("-"))
                     stealthy.add(true);
                 else
                     stealthy.add(false);
@@ -109,9 +112,11 @@ public class EquipmentParser {
                 else
                     strReqs.add(strengths.getString(i));
 
-                equipment.add(new Armor(names.get(i), acs.get(i), strReqs.get(i), costs.getString(i), weights.getString(i), contents.getString(i), stealthy.get(i), type));
+                equipment.add(new Armor(id, names.get(i), acs.get(i), strReqs.get(i), costs.getString(i), weights.getString(i), contents.getString(i), stealthy.get(i), type));
+                id++;
             }
-            equipment.add(new Armor("Shield", "+2 AC", "-", "10 gp", "6 lb.", "***Shield*** It's a shield", true, Armor.ArmorType.SHIELD));
+            equipment.add(new Armor(id,"Shield", "+2 AC", "-", "10 gp", "6 lb.", "***Shield*** It's a shield", true, Armor.ArmorType.SHIELD));
+            id++;
             names.clear();
             acs.clear();
             strReqs.clear();
@@ -146,7 +151,8 @@ public class EquipmentParser {
                     damage = "None";
                 if (property.equals("â€”"))
                     property = "None";
-                equipment.add(new Weapon(name, damage, property, weight, cost, type));
+                equipment.add(new Weapon(id, name, damage, property, weight, cost, type));
+                id++;
             }
         }catch(Exception e){}
     }

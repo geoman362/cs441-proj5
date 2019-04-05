@@ -6,9 +6,11 @@ public class Armor extends Item {
     private ArmorType type;
     private boolean stealthy;
     private String name, ac, strReq, weight, cost, content;
+    private int id;
 
-    public Armor(String name, String ac, String strReq, String cost, String weight, String content, boolean stealthy, ArmorType type){
-        super(name, weight, cost, ""); //No content for Armor
+    public Armor(int id, String name, String ac, String strReq, String cost, String weight, String content, boolean stealthy, ArmorType type){
+        super(id, name, weight, cost, ""); //No content for Armor
+        this.id = id;
         this.name = name;
         this.ac = ac;
         this.strReq = strReq;
@@ -21,7 +23,7 @@ public class Armor extends Item {
 
     @Override
     public String toString(){
-        return name +  " - " + getType() + "\n\t" + content + "\n\tArmor Class: " + ac + "\n\tStealth Disadvantage: " + stealthy +
+        return name +  " - " + getType() + " - ID: " + id + "\n\t" + content + "\n\tArmor Class: " + ac + "\n\tStealth Disadvantage: " + stealthy +
                 "\n\tStrength Requirement: " + strReq + "\n\tWeight: " + weight + "\n\tCost: " + cost;
     }
 

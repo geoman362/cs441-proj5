@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class Grid extends AppCompatActivity {
+    private int addID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,4 +28,14 @@ public class Grid extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras != null) {
+            addID = extras.getInt("new item");
+        }
+        //Add insert item code here
+    }
 }
