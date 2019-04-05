@@ -2,11 +2,13 @@ package com.example.pouch;
 
 public class Weapon extends Item {
     private String name, damage, properties, weight, cost;
+    private int id;
     public enum WeaponType{SIMPLE_MELEE, SIMPLE_RANGED, MARTIAL_MELEE, MARTIAL_RANGED};
     private WeaponType type;
 
-    public Weapon(String name, String damage, String properties, String weight, String cost, WeaponType wt){
-        super(name, weight, cost, "");
+    public Weapon(int id, String name, String damage, String properties, String weight, String cost, WeaponType wt){
+        super(id, name, weight, cost, "");
+        this.id = id;
         this.weight = weight;
         this.cost = cost;
         this.name = name;
@@ -17,7 +19,7 @@ public class Weapon extends Item {
 
     @Override
     public String toString(){
-        return name +  " - " + getType() +"\n\tDamage: " + damage + "\n\tProperties: " + properties +
+        return name +  " - " + getType() + " - ID: " + id +"\n\tDamage: " + damage + "\n\tProperties: " + properties +
                 "\n\tWeight: " + weight + "\n\tCost: " + cost;
     }
 
