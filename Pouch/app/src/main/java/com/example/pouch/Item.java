@@ -35,6 +35,10 @@ public class Item {
         return content;
     }
 
+    public String getText(){
+        return name + " - Item";
+    }
+
     public String toString(){
         return name + " - ID: " + id + "\n\tWeight: " + weight + "\n\tCost: " + cost + "\n\t" + content;
     }
