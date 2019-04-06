@@ -23,6 +23,10 @@ public class Weapon extends Item {
                 "\n\tWeight: " + weight + "\n\tCost: " + cost;
     }
 
+    public String getText(){
+        return name +  " - " + getType();
+    }
+
     public String getDamage() {
         return damage;
     }

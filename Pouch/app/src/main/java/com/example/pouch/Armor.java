@@ -27,6 +27,10 @@ public class Armor extends Item {
                 "\n\tStrength Requirement: " + strReq + "\n\tWeight: " + weight + "\n\tCost: " + cost;
     }
 
+    public String getText(){
+        return name +  " - " + getType();
+    }
+
     public String getAc() {
         return ac;
     }
