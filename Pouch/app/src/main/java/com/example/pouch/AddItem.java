@@ -21,6 +21,7 @@ public class AddItem extends AppCompatActivity {
         setContentView(R.layout.activity_add_item);
 
         ep = new EquipmentParser(this);
+        ep.printEquipment();
         ArrayList<String> items = ep.getItems(); //returns list of all items
         itemAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, items);
         addItem = findViewById(R.id.spinnerItems);
@@ -35,6 +36,7 @@ public class AddItem extends AppCompatActivity {
             int addID = ep.getID(item);
             Log.i("Add ID", Integer.toString(addID));
             intent.putExtra("new item", addID);
+            startActivity(intent);
             }
         });
     }

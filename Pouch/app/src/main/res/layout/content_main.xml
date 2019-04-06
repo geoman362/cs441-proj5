@@ -12,20 +12,19 @@
         android:id="@+id/topright_pouch"
         android:layout_width="148dp"
         android:layout_height="108dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginLeft="184dp"
         app:layout_constraintLeft_toLeftOf="@+id/body_pack"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/body_pack"
         app:srcCompat="@drawable/pouch_pocket_r" />
 
     <ImageView
         android:id="@+id/botright_pouch2"
         android:layout_width="148dp"
         android:layout_height="108dp"
-        android:layout_marginLeft="180dp"
-        android:layout_marginTop="328dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="124dp"
         app:layout_constraintLeft_toLeftOf="@+id/body_pack"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/topright_pouch"
         app:srcCompat="@drawable/pouch_pocket_r" />
 
     <ImageView
@@ -44,10 +43,9 @@
         android:id="@+id/topleft_pouch"
         android:layout_width="151dp"
         android:layout_height="144dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginRight="176dp"
+        android:layout_marginRight="172dp"
         app:layout_constraintRight_toRightOf="@+id/body_pack"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/body_pack"
         app:srcCompat="@drawable/pouch_pocket" />
 
     <ImageView
@@ -86,8 +84,7 @@
         android:layout_width="116dp"
         android:layout_height="79dp"
         android:layout_marginLeft="96dp"
-        android:text="Button"
-        android:visibility="invisible"
+        android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="@+id/body_pack"
         app:layout_constraintTop_toTopOf="@+id/body_pack" />
 

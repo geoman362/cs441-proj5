@@ -1,8 +1,10 @@
 package com.example.pouch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,9 +44,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Insert this code where Equipment parser is needed
-        EquipmentParser ep = new EquipmentParser(this);
-        ep.printEquipment(); //prints equipment in the list
+        Button topMid = findViewById(R.id.topmid_butt);
+        topMid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("Important", "Boop");
+                Intent intent = new Intent(MainActivity.this, Grid.class); // change when classes made
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
