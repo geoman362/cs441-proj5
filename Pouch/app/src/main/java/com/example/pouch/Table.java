@@ -96,4 +96,15 @@ public class Table {
         }
         return succ;
     }
+    public int insert(int wepID){
+        for (int i = 0; i < xdim; i++) {
+            for (int j = 0; j < ydim; j++) {
+                if(equips[i][j]==0){
+                    equips[i][j]=wepID;
+                    return wepID;
+                }
+            }
+        }
+        return 0;
+    }
 }
